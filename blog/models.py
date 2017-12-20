@@ -44,3 +44,22 @@ class Post(models.Model):
                 self.slug
             ]
         )
+
+
+class Comment(models.Model):
+    """评论"""
+    post = models.ForeignKey(Post, related_name='comments', verbose_name='文章')
+    name = models.CharField(max_length=80, verbose_name='姓名')
+    email = models.EmailField(verbose_name='邮箱')
+    body = models.TextField(verbose_name='内容')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='创建时间')
+    updated = models.DateField(auto_now=True, verbose_name='更新时间')
+    active = models.BooleanField(default=True, verbose_name='是否激活')
+
+    class Meta:
+        ordering = ('created',)
+        verbose_name = '评论'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return 'Comment by {} on {}'.format(self.name, self.post)
