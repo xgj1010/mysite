@@ -106,3 +106,11 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+EMAIL_HOST = 'smtp.sina.com'
+EMAIL_POST = 25
+EMAIL_HOST_USER = 'xgjmx@sina.com'
+EMAIL_HOST_PASSWORD = 'xgj891010'
+EMAIL_USE_TLS = False
+EMAIL_FROM = 'xgjmx@sina.com'
